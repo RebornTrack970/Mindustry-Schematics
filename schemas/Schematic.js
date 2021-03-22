@@ -7,6 +7,7 @@ const schematicSchema = mongoose.Schema({
   tags: { type: [String], required: true, default: [] }, 
 
   image: { Data: Buffer, ContentType: String },
+  overlay: { Data: Buffer, ContentType: String },
   requirements: { type: Object, required: true },
   powerProduction: { type: Number, required: true },
   powerConsumption: { type: Number, required: true },

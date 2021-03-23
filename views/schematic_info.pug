@@ -5,14 +5,16 @@ head
   link(rel='stylesheet' href='/css/Mindustry.css' type='text/css')
   link(rel='stylesheet' href='/css/schematic.css' type='text/css')
 
-  - const imageSrc = `/raw/schematics/${schematic._id}/image`
+  - const imageOverlayedSrc = `/raw/schematics/${schematic._id}/overlay`
 
   meta(property="og:title" content=schematic.name)
   meta(property="og:description" content=schematic.description)
 
-  meta(property="og:image" content=imageSrc)
+  meta(property="og:image" content=imageOverlayedSrc)
   meta(property="og:type" content="website")
   meta(property="og:url" content=url)
+
+  meta(name="twitter:card" content="summary_large_image")
 
   meta(name="viewport" content="width=device-width" intialscale="1.0")
   - const title = '[Schematic] ' + schematic.name
@@ -22,6 +24,7 @@ body
     h1= title
     h5= 'Views: ' + schematic.views
     hr
+    - const imageSrc = `/raw/schematics/${schematic._id}/image`
     img#preview(src=imageSrc)
     h3= 'by ' + schematic.creator || schematic.author
     h4= 'Description: ' + schematic.description
